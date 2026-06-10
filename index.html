@@ -212,9 +212,59 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .chat-input button{background:var(--chalk-yellow);color:var(--ink);border:none;border-radius:8px;padding:0 16px;font-weight:600;cursor:pointer;font-size:.88rem}
 .chat-input button:disabled{opacity:.5;cursor:default}
 .chat-note{font-size:.62rem;color:#6B6354;text-align:center;padding:0 16px 10px}
+
+/* password gate */
+html.locked{overflow:hidden}
+#gate{position:fixed;inset:0;z-index:9999;background:#1B1713;display:flex;align-items:center;justify-content:center;padding:24px}
+#gate .box{max-width:360px;width:100%;text-align:center}
+#gate .brand{font-family:'Fraunces',serif;font-weight:700;color:var(--chalk-yellow);font-size:1.5rem;margin-bottom:22px}
+#gate h2{font-family:'Fraunces',serif;color:var(--cream);font-size:1.3rem;margin-bottom:10px}
+#gate p.sub{color:#A89D8C;font-size:.9rem;margin-bottom:22px;line-height:1.5}
+#gate input{width:100%;background:#2A241D;border:1px solid var(--chalk-line);border-radius:8px;color:var(--cream);padding:12px 14px;font-family:'Archivo',sans-serif;font-size:1rem;text-align:center;letter-spacing:.06em}
+#gate input:focus-visible{outline:2px solid var(--chalk-yellow);outline-offset:1px}
+#gate button{width:100%;margin-top:12px;background:var(--chalk-yellow);color:var(--ink);border:none;border-radius:8px;padding:12px;font-family:'Archivo',sans-serif;font-weight:600;font-size:1rem;cursor:pointer}
+#gate .err{color:var(--terra);font-size:.82rem;margin-top:14px;min-height:1em}
 </style>
 </head>
 <body>
+
+<div id="gate">
+  <div class="box">
+    <div class="brand">Bib's Crew</div>
+    <h2 id="gateTitle">Confidential</h2>
+    <p class="sub" id="gateSub">This investment summary is private. Enter the password to continue.</p>
+    <input id="gatePw" type="password" autocomplete="off" aria-label="Access password" placeholder="Password">
+    <button id="gateBtn" type="button">Enter</button>
+    <p class="err" id="gateErr"></p>
+  </div>
+</div>
+<script>
+(function(){
+  var G={en:{t:"Confidential",s:"This investment summary is private. Enter the password to continue.",p:"Password",b:"Enter",e:"Incorrect password — try again."},
+    pt:{t:"Confidencial",s:"Este resumo de investimento é privado. Digite a senha para continuar.",p:"Senha",b:"Entrar",e:"Senha incorreta — tente novamente."},
+    es:{t:"Confidencial",s:"Este resumen de inversión es privado. Introduce la contraseña para continuar.",p:"Contraseña",b:"Entrar",e:"Contraseña incorrecta — inténtalo de nuevo."}};
+  var l='en';try{l=localStorage.getItem('bc_lang')||(navigator.language||'en').slice(0,2).toLowerCase();}catch(e){}
+  if(!G[l])l='en';var t=G[l];
+  document.getElementById('gateTitle').textContent=t.t;
+  document.getElementById('gateSub').textContent=t.s;
+  document.getElementById('gatePw').placeholder=t.p;
+  document.getElementById('gateBtn').textContent=t.b;
+  var gate=document.getElementById('gate'),pw=document.getElementById('gatePw'),
+    btn=document.getElementById('gateBtn'),err=document.getElementById('gateErr');
+  var unlocked=false;try{unlocked=sessionStorage.getItem('bc_unlocked')==='1';}catch(e){}
+  function open(){gate.remove();document.documentElement.classList.remove('locked');}
+  if(unlocked){open();return;}
+  document.documentElement.classList.add('locked');
+  function tryit(){
+    if(pw.value.trim().toLowerCase()==='bibs2026'){
+      try{sessionStorage.setItem('bc_unlocked','1');}catch(e){}open();
+    }else{err.textContent=t.e;pw.value='';pw.focus();}
+  }
+  btn.addEventListener('click',tryit);
+  pw.addEventListener('keydown',function(e){if(e.key==='Enter')tryit();});
+  setTimeout(function(){pw.focus();},50);
+})();
+</script>
 
 <nav aria-label="Sections">
   <div class="wrap">
