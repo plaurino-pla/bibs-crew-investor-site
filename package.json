@@ -1,0 +1,8 @@
+{
+  "name": "bibs-crew-investor-site",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.88.0"
+  }
+}
