@@ -33,7 +33,11 @@ a{color:inherit}
 /* nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(27,23,19,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--chalk-line)}
 nav .wrap{display:flex;align-items:center;gap:22px;height:56px}
-nav .brand{font-family:'Fraunces',serif;font-weight:700;color:var(--chalk-yellow);font-size:1.05rem;letter-spacing:.02em}
+nav .brand{font-family:'Fraunces',serif;font-weight:700;color:var(--chalk-yellow);font-size:1.05rem;letter-spacing:.02em;flex-shrink:0}
+nav .lang{display:flex;gap:1px;flex-shrink:0}
+nav .lang button{background:none;border:none;color:#8E8170;font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;padding:6px 5px;cursor:pointer;border-radius:4px;transition:color .15s ease-out}
+nav .lang button:hover{color:#CFC6B8}
+nav .lang button.active{color:var(--chalk-yellow)}
 nav .links{display:flex;gap:18px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
 nav .links::-webkit-scrollbar{display:none}
 @media(max-width:760px){nav .links{padding-right:28px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}}
@@ -199,55 +203,60 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 <nav aria-label="Sections">
   <div class="wrap">
     <span class="brand">Bib's Crew · Paço de Arcos</span>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-lang="en" aria-label="English">EN</button>
+      <button type="button" data-lang="pt" aria-label="Português">PT</button>
+      <button type="button" data-lang="es" aria-label="Español">ES</button>
+    </div>
     <div class="links">
-      <a href="#today">The café</a>
-      <a href="#history">History</a>
-      <a href="#thesis">Thesis</a>
-      <a href="#model">Model</a>
-      <a href="#deal">Deal</a>
-      <a href="#returns">Returns</a>
-      <a href="#risks">Risks</a>
-      <a href="#dataroom">Data room</a>
+      <a href="#today" data-i18n="navCafe">The café</a>
+      <a href="#history" data-i18n="navHist">History</a>
+      <a href="#thesis" data-i18n="navThesis">Thesis</a>
+      <a href="#model" data-i18n="navModel">Model</a>
+      <a href="#deal" data-i18n="navDeal">Deal</a>
+      <a href="#returns" data-i18n="navReturns">Returns</a>
+      <a href="#risks" data-i18n="navRisks">Risks</a>
+      <a href="#dataroom" data-i18n="navData">Data room</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Investment opportunity · June 2026 · Confidential</div>
-    <h1>A specialty café two minutes from the Atlantic, <em>running at half throttle.</em></h1>
-    <p class="sub">Bib's Crew is a fully built, fully licensed 60-seat specialty-coffee and all-day-food café in the pedestrian heart of Paço de Arcos. We propose to buy the assets — not the company — and switch on the revenue the space already supports: a 20-seat cowork membership, a lunch-grade menu, a books corner, and a roaster partnership.</p>
+    <div class="eyebrow" data-i18n="heroEyebrow">Investment opportunity · June 2026 · Confidential</div>
+    <h1 data-i18n="heroH1">A specialty café two minutes from the Atlantic, <em>running at half throttle.</em></h1>
+    <p class="sub" data-i18n="heroSub">Bib's Crew is a fully built, fully licensed 60-seat specialty-coffee and all-day-food café in the pedestrian heart of Paço de Arcos. We propose to buy the assets — not the company — and switch on the revenue the space already supports: a 20-seat cowork membership, a lunch-grade menu, a books corner, and a roaster partnership.</p>
     <div class="facts" role="list">
-      <div class="fact" role="listitem"><b>€173.9k</b><span>2025 revenue · +24% YoY</span></div>
-      <div class="fact warn" role="listitem"><b>−€8.5k</b><span>2025 EBITDA · not yet profitable</span></div>
-      <div class="fact" role="listitem"><b>2033</b><span>Lease secured · €3,500/mo</span></div>
-      <div class="fact gold" role="listitem"><b>€80k</b><span>Capital sought · €40k lead · from €5k</span></div>
+      <div class="fact" role="listitem"><b>€173.9k</b><span data-i18n="fact1">2025 revenue · +24% YoY</span></div>
+      <div class="fact warn" role="listitem"><b>−€8.5k</b><span data-i18n="fact2">2025 EBITDA · not yet profitable</span></div>
+      <div class="fact" role="listitem"><b>2033</b><span data-i18n="fact3">Lease secured · €3,500/mo</span></div>
+      <div class="fact gold" role="listitem"><b>€80k</b><span data-i18n="fact4">Capital sought · €40k lead · from €5k</span></div>
     </div>
-    <div class="candor"><strong>Read this first:</strong> the business has reported losses in all three years of trading. This site does not hide that — the thesis is built on it. Every historical number below comes from official tax filings included in the data room.</div>
+    <div class="candor" data-i18n="candor"><strong>Read this first:</strong> the business has reported losses in all three years of trading. This site does not hide that — the thesis is built on it. Every historical number below comes from official tax filings included in the data room.</div>
   </div>
 </header>
 
 <section id="today">
   <div class="wrap">
-    <div class="section-eyebrow">01 · The café today</div>
-    <h2>Built, licensed, trading — and under-monetised</h2>
-    <p class="lede">€95k of fit-out completed in 2023. Ten-year lease. Trained team. Loyal local base. The founder runs a morning-biased operation, works the floor himself unpaid, and is selling. What's missing isn't capex — it's dayparts and revenue streams.</p>
+    <div class="section-eyebrow" data-i18n="s1eye">01 · The café today</div>
+    <h2 data-i18n="s1h2">Built, licensed, trading — and under-monetised</h2>
+    <p class="lede" data-i18n="s1lede">€95k of fit-out completed in 2023. Ten-year lease. Trained team. Loyal local base. The founder runs a morning-biased operation, works the floor himself unpaid, and is selling. What's missing isn't capex — it's dayparts and revenue streams.</p>
     <div class="hist-grid">
       <div class="chart-card">
         <table class="numbers-table" aria-label="Snapshot">
-          <tr><th>Asset</th><th>Status</th></tr>
-          <tr><td>Space</td><td>90 m² · 60 seats · 24 esplanada</td></tr>
-          <tr><td>Location</td><td>Pedestrian zone · hotels · paredão</td></tr>
-          <tr><td>Lease</td><td>To Jun 2033 · trespasse pre-authorised</td></tr>
-          <tr><td>Licences</td><td>Utilização 52/2023 · esplanada · HACCP</td></tr>
-          <tr><td>Kit</td><td>Espresso · kitchen · A/C · extraction</td></tr>
-          <tr><td>Team</td><td>3 staff · 1 permanent since 2023</td></tr>
-          <tr><td>Menu</td><td>Specialty coffee · brunch · açaí · craft beer</td></tr>
+          <tr><th data-i18n="snapHA">Asset</th><th data-i18n="snapHS">Status</th></tr>
+          <tr><td data-i18n="snSpaceK">Space</td><td data-i18n="snSpaceV">90 m² · 60 seats · 24 esplanada</td></tr>
+          <tr><td data-i18n="snLocK">Location</td><td data-i18n="snLocV">Pedestrian zone · hotels · paredão</td></tr>
+          <tr><td data-i18n="snLeaseK">Lease</td><td data-i18n="snLeaseV">To Jun 2033 · trespasse pre-authorised</td></tr>
+          <tr><td data-i18n="snLicK">Licences</td><td data-i18n="snLicV">Utilização 52/2023 · esplanada · HACCP</td></tr>
+          <tr><td data-i18n="snKitK">Kit</td><td data-i18n="snKitV">Espresso · kitchen · A/C · extraction</td></tr>
+          <tr><td data-i18n="snTeamK">Team</td><td data-i18n="snTeamV">3 staff · 1 permanent since 2023</td></tr>
+          <tr><td data-i18n="snMenuK">Menu</td><td data-i18n="snMenuV">Specialty coffee · brunch · açaí · craft beer</td></tr>
         </table>
       </div>
       <div>
         <div class="chart-card"><canvas id="daypartChart" height="240" aria-label="Revenue by daypart, today vs plan" role="img"></canvas></div>
-        <p style="font-size:.78rem;color:#6B6354;margin-top:10px">Illustrative daypart mix. Today's revenue concentrates in the brunch window; the plan monetises the morning-to-afternoon plateau the space already pays rent on.</p>
+        <p style="font-size:.78rem;color:#6B6354;margin-top:10px" data-i18n="dpCap">Illustrative daypart mix. Today's revenue concentrates in the brunch window; the plan monetises the morning-to-afternoon plateau the space already pays rent on.</p>
       </div>
     </div>
     <div class="gallery">
@@ -258,28 +267,28 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
       <img src="assets/street.jpg" alt="Pedestrian street in Paço de Arcos outside the café">
       <img src="assets/facade.jpg" alt="Café facade with awning and esplanada seating">
     </div>
-    <p class="gallery-credit">Photos from the <a href="https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45" target="_blank" rel="noopener">public RE/MAX sale listing</a> — full set, floor plan and location map there.</p>
+    <p class="gallery-credit" data-i18n="galCredit">Photos from the <a href="https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45" target="_blank" rel="noopener">public RE/MAX sale listing</a> — full set, floor plan and location map there.</p>
   </div>
 </section>
 
 <section id="history" style="background:var(--cream-deep)">
   <div class="wrap">
-    <div class="section-eyebrow">02 · Track record</div>
-    <h2>Three years of audited honesty</h2>
-    <p class="lede">Revenue grew every year. Losses narrowed every year. Breakeven sits around €187k of sales on the current cost base — 2025 closed at €174k. We are buying at asset value, not paying for earnings that don't exist.</p>
+    <div class="section-eyebrow" data-i18n="s2eye">02 · Track record</div>
+    <h2 data-i18n="s2h2">Three years of audited honesty</h2>
+    <p class="lede" data-i18n="s2lede">Revenue grew every year. Losses narrowed every year. Breakeven sits around €187k of sales on the current cost base — 2025 closed at €174k. We are buying at asset value, not paying for earnings that don't exist.</p>
     <div class="hist-grid">
       <div class="chart-card"><canvas id="histChart" height="280" aria-label="Historical revenue and EBITDA" role="img"></canvas></div>
       <div class="chart-card">
         <table class="numbers-table" aria-label="Historical P&L, EUR">
           <tr><th>EUR</th><th>2023*</th><th>2024</th><th>2025</th></tr>
-          <tr><td>Revenue</td><td>34,225</td><td>140,175</td><td>173,909</td></tr>
-          <tr><td>Gross margin</td><td>44.5%</td><td>67.8%</td><td>67.0%</td></tr>
-          <tr><td>Supplies (FSE)</td><td class="neg">(31,563)</td><td class="neg">(54,096)</td><td class="neg">(65,687)</td></tr>
-          <tr><td>Staff</td><td class="neg">(15,958)</td><td class="neg">(55,655)</td><td class="neg">(55,260)</td></tr>
+          <tr><td data-i18n="plRev">Revenue</td><td>34,225</td><td>140,175</td><td>173,909</td></tr>
+          <tr><td data-i18n="plGM">Gross margin</td><td>44.5%</td><td>67.8%</td><td>67.0%</td></tr>
+          <tr><td data-i18n="plSup">Supplies (FSE)</td><td class="neg">(31,563)</td><td class="neg">(54,096)</td><td class="neg">(65,687)</td></tr>
+          <tr><td data-i18n="plStaff">Staff</td><td class="neg">(15,958)</td><td class="neg">(55,655)</td><td class="neg">(55,260)</td></tr>
           <tr class="tot"><td>EBITDA</td><td class="neg">(32,586)</td><td class="neg">(15,174)</td><td class="neg">(8,505)</td></tr>
-          <tr class="tot"><td>Net result</td><td class="neg">(37,759)</td><td class="neg">(21,979)</td><td class="neg">~(21,900)</td></tr>
+          <tr class="tot"><td data-i18n="plNet">Net result</td><td class="neg">(37,759)</td><td class="neg">(21,979)</td><td class="neg">~(21,900)</td></tr>
         </table>
-        <p style="font-size:.75rem;color:#6B6354;margin-top:12px">*Jul–Dec opening period. Sources: IES 2023 & 2024 (official AT filings), Dec 2025 trial balance — all in the data room. Staff line covers 3 employees; the owner works full-time unpaid.</p>
+        <p style="font-size:.75rem;color:#6B6354;margin-top:12px" data-i18n="plFoot">*Jul–Dec opening period. Sources: IES 2023 & 2024 (official AT filings), Dec 2025 trial balance — all in the data room. Staff line covers 3 employees; the owner works full-time unpaid.</p>
       </div>
     </div>
   </div>
@@ -287,29 +296,29 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="thesis" class="dark">
   <div class="wrap">
-    <div class="section-eyebrow">03 · The thesis</div>
-    <h2>Four levers, all validated on site</h2>
-    <p class="lede">None of these requires construction, relicensing of the building, or a concept change. Combined capex: €14k — all funded at closing.</p>
+    <div class="section-eyebrow" data-i18n="s3eye">03 · The thesis</div>
+    <h2 data-i18n="s3h2">Four levers, all validated on site</h2>
+    <p class="lede" data-i18n="s3lede">None of these requires construction, relicensing of the building, or a concept change. Combined capex: €14k — all funded at closing.</p>
     <div class="levers">
       <div class="lever">
-        <h3>Cowork membership</h3>
-        <p>The room holds 20 working positions through weekday hours that currently earn almost nothing. €129/month including daily coffee credit, power at every table, quiet hours till 12:30. No specialty-coffee cowork hybrid exists on the Linha.</p>
-        <span class="tag">Year-3 impact · <b>~€25k+ at ~90% margin</b> · capex €6.5k</span>
+        <h3 data-i18n="lev1h">Cowork membership</h3>
+        <p data-i18n="lev1p">The room holds 20 working positions through weekday hours that currently earn almost nothing. €129/month including daily coffee credit, power at every table, quiet hours till 12:30. No specialty-coffee cowork hybrid exists on the Linha.</p>
+        <span class="tag" data-i18n="lev1t">Year-3 impact · <b>~€25k+ at ~90% margin</b> · capex €6.5k</span>
       </div>
       <div class="lever">
-        <h3>Lunch-grade menu</h3>
-        <p>Today's menu stops at brunch — no salad bowls, no quiche, no daily warm dish. A tight lunch line raises the ticket, fills 12:30–15:00, and feeds the members already in the room. Underpins the 67% → 71% gross-margin plan.</p>
-        <span class="tag">Impact · <b>ticket + daypart + 4pts GM</b> · capex €4k</span>
+        <h3 data-i18n="lev2h">Lunch-grade menu</h3>
+        <p data-i18n="lev2p">Today's menu stops at brunch — no salad bowls, no quiche, no daily warm dish. A tight lunch line raises the ticket, fills 12:30–15:00, and feeds the members already in the room. Underpins the 67% → 71% gross-margin plan.</p>
+        <span class="tag" data-i18n="lev2t">Impact · <b>ticket + daypart + 4pts GM</b> · capex €4k</span>
       </div>
       <div class="lever">
-        <h3>Books corner</h3>
-        <p>Curated retail leveraging the lead investor's two decades in publishing — direct publisher relationships unlock consignment terms most cafés can't get. Modest revenue, outsized brand, dwell time and press value.</p>
-        <span class="tag">Year-3 impact · <b>~€13k at 38% margin</b> · capex €3.5k</span>
+        <h3 data-i18n="lev3h">Books corner</h3>
+        <p data-i18n="lev3p">Curated retail leveraging the lead investor's two decades in publishing — direct publisher relationships unlock consignment terms most cafés can't get. Modest revenue, outsized brand, dwell time and press value.</p>
+        <span class="tag" data-i18n="lev3t">Year-3 impact · <b>~€13k at 38% margin</b> · capex €3.5k</span>
       </div>
       <div class="lever">
-        <h3>Roaster partnership</h3>
-        <p>A committed specialty roaster is ready to partner: better cost per espresso on every cup, co-branded retail bags, cuppings and events that build the membership community.</p>
-        <span class="tag">Impact · <b>margin lift + €5–9k retail</b> · capex €0</span>
+        <h3 data-i18n="lev4h">Roaster partnership</h3>
+        <p data-i18n="lev4p">A committed specialty roaster is ready to partner: better cost per espresso on every cup, co-branded retail bags, cuppings and events that build the membership community.</p>
+        <span class="tag" data-i18n="lev4t">Impact · <b>margin lift + €5–9k retail</b> · capex €0</span>
       </div>
     </div>
   </div>
@@ -317,37 +326,37 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="model" class="dark" style="background:var(--chalk-deep)">
   <div class="wrap">
-    <div class="section-eyebrow">04 · Interactive model</div>
-    <h2>Don't trust our case — build yours</h2>
-    <p class="lede">Same engine as the Excel model in the data room. Move the levers; the three-year P&L recalculates. Costs always assume four paid staff — never free founder labour.</p>
+    <div class="section-eyebrow" data-i18n="s4eye">04 · Interactive model</div>
+    <h2 data-i18n="s4h2">Don't trust our case — build yours</h2>
+    <p class="lede" data-i18n="s4lede">Same engine as the Excel model in the data room. Move the levers; the three-year P&L recalculates. Costs always assume four paid staff — never free founder labour.</p>
     <div class="kpis">
-      <div class="kpi"><span>Year 1 EBITDA</span><b id="k1">—</b></div>
-      <div class="kpi"><span>Year 2 EBITDA</span><b id="k2">—</b></div>
-      <div class="kpi"><span>Year 3 EBITDA</span><b id="k3">—</b></div>
+      <div class="kpi"><span data-i18n="k1l">Year 1 EBITDA</span><b id="k1">—</b></div>
+      <div class="kpi"><span data-i18n="k2l">Year 2 EBITDA</span><b id="k2">—</b></div>
+      <div class="kpi"><span data-i18n="k3l">Year 3 EBITDA</span><b id="k3">—</b></div>
     </div>
     <div class="model-grid">
       <div class="controls">
-        <h3>Assumptions</h3>
-        <p class="hint">Presets, then fine-tune.</p>
+        <h3 data-i18n="asmH">Assumptions</h3>
+        <p class="hint" data-i18n="asmHint">Presets, then fine-tune.</p>
         <div class="scenario-btns" role="group" aria-label="Scenario presets">
-          <button id="bDown">Downside</button>
-          <button id="bBase" class="active">Base</button>
-          <button id="bUp">Upside</button>
+          <button id="bDown" data-i18n="btnDown">Downside</button>
+          <button id="bBase" class="active" data-i18n="btnBase">Base</button>
+          <button id="bUp" data-i18n="btnUp">Upside</button>
         </div>
-        <div class="ctrl"><label>Cowork members at maturity <output id="oM">16</output></label>
+        <div class="ctrl"><label><span data-i18n="ctrlM">Cowork members at maturity </span><output id="oM">16</output></label>
           <input type="range" id="sM" min="0" max="20" value="16" step="1"></div>
-        <div class="ctrl"><label>Membership fee €/mo <output id="oF">129</output></label>
+        <div class="ctrl"><label><span data-i18n="ctrlF">Membership fee €/mo </span><output id="oF">129</output></label>
           <input type="range" id="sF" min="89" max="189" value="129" step="5"></div>
-        <div class="ctrl"><label>Core café growth, Yr 1 <output id="oG">6%</output></label>
+        <div class="ctrl"><label><span data-i18n="ctrlG">Core café growth, Yr 1 </span><output id="oG">6%</output></label>
           <input type="range" id="sG" min="-10" max="25" value="6" step="1"></div>
-        <div class="ctrl"><label>Target gross margin <output id="oGM">71%</output></label>
+        <div class="ctrl"><label><span data-i18n="ctrlGM">Target gross margin </span><output id="oGM">71%</output></label>
           <input type="range" id="sGM" min="63" max="76" value="71" step="1"></div>
-        <div class="ctrl"><label>Books + bags €/mo (Yr 3) <output id="oB">1850</output></label>
+        <div class="ctrl"><label><span data-i18n="ctrlB">Books + bags €/mo (Yr 3) </span><output id="oB">1850</output></label>
           <input type="range" id="sB" min="0" max="3500" value="1850" step="50"></div>
       </div>
       <div>
         <div class="model-chart"><canvas id="modelChart" height="290" aria-label="Projected revenue and EBITDA under your assumptions" role="img"></canvas></div>
-        <p class="model-note">Fixed in every run: rent €42k (the July-2026 step to €3,500/mo is already in) indexed 2%; staff = 4 FTE + shift lead (€80.5k, +4%/yr); other supplies €26k (+4%/yr); other costs €4.2k. EBITDA before D&A on new capex, interest and tax. Downside preset applies −12% to all revenue; Upside +12%.</p>
+        <p class="model-note" data-i18n="mNote">Fixed in every run: rent €42k (the July-2026 step to €3,500/mo is already in) indexed 2%; staff = 4 FTE + shift lead (€80.5k, +4%/yr); other supplies €26k (+4%/yr); other costs €4.2k. EBITDA before D&A on new capex, interest and tax. Downside preset applies −12% to all revenue; Upside +12%.</p>
       </div>
     </div>
   </div>
@@ -355,57 +364,57 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="deal">
   <div class="wrap">
-    <div class="section-eyebrow">05 · Deal structure</div>
-    <h2>Assets in, liabilities out</h2>
-    <p class="lede">The <a href="https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45" target="_blank" rel="noopener">public listing</a> offers the company's shares at €55k. We won't buy shares: the seller's entity carries ~€157k of founder loans, €34k of stretched supplier payables and ~€81k of negative equity. A new company acquires the establishment by trespasse instead.</p>
+    <div class="section-eyebrow" data-i18n="s5eye">05 · Deal structure</div>
+    <h2 data-i18n="s5h2">Assets in, liabilities out</h2>
+    <p class="lede" data-i18n="s5lede">The <a href="https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45" target="_blank" rel="noopener">public listing</a> offers the company's shares at €55k. We won't buy shares: the seller's entity carries ~€157k of founder loans, €34k of stretched supplier payables and ~€81k of negative equity. A new company acquires the establishment by trespasse instead.</p>
     <div class="two-col">
       <div>
-        <h3>What NewCo acquires</h3>
+        <h3 data-i18n="ncH">What NewCo acquires</h3>
         <ul class="checklist">
-          <li>Fit-out & equipment (€95k gross invested, turnkey)</li>
-          <li>Lease position to 2033 — transfers with the establishment by law (art. 1112.º CC); pre-authorised in the contract</li>
-          <li>Brand, social accounts, recipes, supplier book</li>
-          <li>Permanent staff continuity (art. 285.º CT) — hiring to a 4-FTE plan</li>
-          <li>Clean balance sheet, clean supplier terms, zero history</li>
+          <li data-i18n="ck1">Fit-out & equipment (€95k gross invested, turnkey)</li>
+          <li data-i18n="ck2">Lease position to 2033 — transfers with the establishment by law (art. 1112.º CC); pre-authorised in the contract</li>
+          <li data-i18n="ck3">Brand, social accounts, recipes, supplier book</li>
+          <li data-i18n="ck4">Permanent staff continuity (art. 285.º CT) — hiring to a 4-FTE plan</li>
+          <li data-i18n="ck5">Clean balance sheet, clean supplier terms, zero history</li>
         </ul>
       </div>
       <div>
-        <h3>Use of funds — €80k</h3>
+        <h3 data-i18n="ufH">Use of funds — €80k</h3>
         <table class="uses-table">
-          <tr><td>Trespasse price (capped)</td><td>30,000</td></tr>
-          <tr><td>Stamp duty 5% + legal + brand</td><td>4,500</td></tr>
-          <tr><td>Lease deposit reinforcement</td><td>7,000</td></tr>
-          <tr><td>Fit-out: cowork + lunch kitchen + books</td><td>14,000</td></tr>
-          <tr><td>Opening stock + working capital</td><td>12,500</td></tr>
-          <tr><td>Contingency / Year-1 buffer</td><td>12,000</td></tr>
-          <tr class="tot"><td>Total · €40k lead · €40k co-investors</td><td>80,000</td></tr>
+          <tr><td data-i18n="uf1">Trespasse price (capped)</td><td>30,000</td></tr>
+          <tr><td data-i18n="uf2">Stamp duty 5% + legal + brand</td><td>4,500</td></tr>
+          <tr><td data-i18n="uf3">Lease deposit reinforcement</td><td>7,000</td></tr>
+          <tr><td data-i18n="uf4">Fit-out: cowork + lunch kitchen + books</td><td>14,000</td></tr>
+          <tr><td data-i18n="uf5">Opening stock + working capital</td><td>12,500</td></tr>
+          <tr><td data-i18n="uf6">Contingency / Year-1 buffer</td><td>12,000</td></tr>
+          <tr class="tot"><td data-i18n="ufTot">Total · €40k lead · €40k co-investors</td><td>80,000</td></tr>
         </table>
-        <p style="font-size:.75rem;color:#6B6354;margin-top:12px">The trespasse price is a hard cap, not a target — we walk if the seller won't meet it, and his position argues he will: €81k negative equity and a €55k share asking price with no takers. All four levers are funded at closing; nothing depends on early cash flow.</p>
+        <p style="font-size:.75rem;color:#6B6354;margin-top:12px" data-i18n="ufFoot">The trespasse price is a hard cap, not a target — we walk if the seller won't meet it, and his position argues he will: €81k negative equity and a €55k share asking price with no takers. All four levers are funded at closing; nothing depends on early cash flow.</p>
       </div>
     </div>
     <div class="payout">
-      <h3>How investors get paid</h3>
-      <p>Returns here are cash distributions, not a hoped-for exit multiple. The mechanics, in order:</p>
+      <h3 data-i18n="poH">How investors get paid</h3>
+      <p data-i18n="poIntro">Returns here are cash distributions, not a hoped-for exit multiple. The mechanics, in order:</p>
       <div class="payout-grid">
         <div class="payout-card">
-          <span class="num">1 · Same terms as the lead</span>
-          <h4>Invest from €5k — your stake is pro-rata</h4>
-          <p>NewCo raises €80k. The lead invests €40k for 50%; co-investors share the other 50% at exactly the same price per point — invest what you want from €5k, and your stake is simply your investment ÷ €80k. No management fees, no carry, no salary from NewCo.</p>
+          <span class="num" data-i18n="c1n">1 · Same terms as the lead</span>
+          <h4 data-i18n="c1h">Invest from €5k — your stake is pro-rata</h4>
+          <p data-i18n="c1p">NewCo raises €80k. The lead invests €40k for 50%; co-investors share the other 50% at exactly the same price per point — invest what you want from €5k, and your stake is simply your investment ÷ €80k. No management fees, no carry, no salary from NewCo.</p>
         </div>
         <div class="payout-card">
-          <span class="num">2 · Quarterly dividends</span>
-          <h4>All cash above a €25k buffer</h4>
-          <p>Each quarter, every euro of cash above a fixed €25k operating buffer is distributed pro-rata to quotas. Nothing accumulates in the company beyond the buffer. In the base case, first dividends flow in Year&nbsp;2 — model your own ticket below.</p>
+          <span class="num" data-i18n="c2n">2 · Quarterly dividends</span>
+          <h4 data-i18n="c2h">All cash above a €25k buffer</h4>
+          <p data-i18n="c2p">Each quarter, every euro of cash above a fixed €25k operating buffer is distributed pro-rata to quotas. Nothing accumulates in the company beyond the buffer. In the base case, first dividends flow in Year&nbsp;2 — model your own ticket below.</p>
         </div>
         <div class="payout-card">
-          <span class="num">3 · Capital back, then yield</span>
-          <h4>Dividends count against your capital first</h4>
-          <p>We report every distribution against your invested capital until it is fully returned; everything after that is yield. Dividends alone repay slowly on the base case — which is why the structure includes a defined buyout path, not just a hoped-for sale.</p>
+          <span class="num" data-i18n="c3n">3 · Capital back, then yield</span>
+          <h4 data-i18n="c3h">Dividends count against your capital first</h4>
+          <p data-i18n="c3p">We report every distribution against your invested capital until it is fully returned; everything after that is yield. Dividends alone repay slowly on the base case — which is why the structure includes a defined buyout path, not just a hoped-for sale.</p>
         </div>
         <div class="payout-card">
-          <span class="num">4 · Two exit doors</span>
-          <h4>Repurchase if we expand · trespasse if we sell</h4>
-          <p>If NewCo expands — a second site, brand licensing — the company or the lead repurchases co-investor quotas at a pre-agreed valuation formula, so you can cash out without waiting for a sale. Otherwise, a future trespasse sale of the establishment distributes pro-rata after debts. Governance: quarterly P&amp;L against this model, annual accounts, investor consent on reserved matters.</p>
+          <span class="num" data-i18n="c4n">4 · Two exit doors</span>
+          <h4 data-i18n="c4h">Repurchase if we expand · trespasse if we sell</h4>
+          <p data-i18n="c4p">If NewCo expands — a second site, brand licensing — the company or the lead repurchases co-investor quotas at a pre-agreed valuation formula, so you can cash out without waiting for a sale. Otherwise, a future trespasse sale of the establishment distributes pro-rata after debts. Governance: quarterly P&amp;L against this model, annual accounts, investor consent on reserved matters.</p>
         </div>
       </div>
     </div>
@@ -414,31 +423,31 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="returns" class="dark" style="background:var(--chalk-deep)">
   <div class="wrap">
-    <div class="section-eyebrow">06 · Your returns</div>
-    <h2>Model your ticket</h2>
-    <p class="lede">Pick an amount; the dividends follow the same engine and whatever scenario and assumptions you set in the model above, projected to the end of the lease (2033). Dividends only — any repurchase or trespasse exit comes on top of these numbers.</p>
+    <div class="section-eyebrow" data-i18n="s6eye">06 · Your returns</div>
+    <h2 data-i18n="s6h2">Model your ticket</h2>
+    <p class="lede" data-i18n="s6lede">Pick an amount; the dividends follow the same engine and whatever scenario and assumptions you set in the model above, projected to the end of the lease (2033). Dividends only — any repurchase or trespasse exit comes on top of these numbers.</p>
     <div class="kpis k4">
-      <div class="kpi"><span>Your stake</span><b id="rStake">—</b></div>
-      <div class="kpi"><span>Dividends by 2033</span><b id="rTotal">—</b></div>
-      <div class="kpi"><span>Money back</span><b id="rMult">—</b></div>
-      <div class="kpi"><span>Payback</span><b id="rPay">—</b></div>
+      <div class="kpi"><span data-i18n="rStakeL">Your stake</span><b id="rStake">—</b></div>
+      <div class="kpi"><span data-i18n="rTotalL">Dividends by 2033</span><b id="rTotal">—</b></div>
+      <div class="kpi"><span data-i18n="rMultL">Money back</span><b id="rMult">—</b></div>
+      <div class="kpi"><span data-i18n="rPayL">Payback</span><b id="rPay">—</b></div>
     </div>
     <div class="model-grid">
       <div class="controls">
-        <h3>Your investment</h3>
-        <p class="hint">Minimum €5k. Same price per point as the lead's €40k.</p>
+        <h3 data-i18n="invH">Your investment</h3>
+        <p class="hint" data-i18n="invHint">Minimum €5k. Same price per point as the lead's €40k.</p>
         <div class="scenario-btns" role="group" aria-label="Scenario presets">
-          <button id="rDown">Downside</button>
-          <button id="rBase" class="active">Base</button>
-          <button id="rUp">Upside</button>
+          <button id="rDown" data-i18n="btnDown">Downside</button>
+          <button id="rBase" class="active" data-i18n="btnBase">Base</button>
+          <button id="rUp" data-i18n="btnUp">Upside</button>
         </div>
-        <div class="ctrl"><label>Investment <output id="oI">€10,000</output></label>
+        <div class="ctrl"><label><span data-i18n="ctrlI">Investment </span><output id="oI">€10,000</output></label>
           <input type="range" id="sI" min="5000" max="40000" value="10000" step="1000"></div>
-        <p class="hint" style="margin-top:14px">Your stake = investment ÷ €80k. The fine-grained sliders in section 04 feed this projection too — stress it however you like.</p>
+        <p class="hint" style="margin-top:14px" data-i18n="invHint2">Your stake = investment ÷ €80k. The fine-grained sliders in section 04 feed this projection too — stress it however you like.</p>
       </div>
       <div>
         <div class="model-chart"><canvas id="returnsChart" height="290" aria-label="Your annual and cumulative dividends under the chosen scenario" role="img"></canvas></div>
-        <p class="model-note">Engine: NewCo opens with ~€24.5k cash (working capital + contingency — all capex already paid at closing). Each year's EBITDA adds to cash; everything above the €25k buffer is distributed pro-rata. Years 4–7 hold Year-3 EBITDA flat — no growth assumed. Figures are pre-tax (before IRC and dividend withholding) and exclude the repurchase / trespasse exit.</p>
+        <p class="model-note" data-i18n="rNote">Engine: NewCo opens with ~€24.5k cash (working capital + contingency — all capex already paid at closing). Each year's EBITDA adds to cash; everything above the €25k buffer is distributed pro-rata. Years 4–7 hold Year-3 EBITDA flat — no growth assumed. Figures are pre-tax (before IRC and dividend withholding) and exclude the repurchase / trespasse exit.</p>
       </div>
     </div>
   </div>
@@ -446,61 +455,61 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 <section id="risks" class="dark risks">
   <div class="wrap">
-    <div class="section-eyebrow">07 · Risks, stated plainly</div>
-    <h2>What can go wrong</h2>
-    <p class="lede">If any of these makes you walk away, that's the correct use of this page.</p>
+    <div class="section-eyebrow" data-i18n="s7eye">07 · Risks, stated plainly</div>
+    <h2 data-i18n="s7h2">What can go wrong</h2>
+    <p class="lede" data-i18n="s7lede">If any of these makes you walk away, that's the correct use of this page.</p>
     <ul class="risk-list">
-      <li><b>It has never been profitable.</b> The thesis depends on executing new revenue streams, not inheriting earnings. The downside preset above shows a path that never breaks even in three years — the €12k contingency and fully-funded capex exist for exactly that path, with the lead able to bridge beyond it before any new money dilutes anyone.</li>
-      <li><b>Founder dependency.</b> Part of today's goodwill is personal to the founder. Mitigants: paid 4-week handover, 3-year local non-compete, retention of permanent staff — and a named day-to-day operator signed <em>before</em> closing, as a hard condition.</li>
-      <li><b>Seasonality.</b> Winter trades ~20% below average. The cowork stream is deliberately counter-seasonal — members are weekday locals, not tourists.</li>
-      <li><b>Rent step-up.</b> +€3,000/yr from July 2026. Already in every scenario on this page.</li>
-      <li><b>Licensing transfer.</b> The esplanada (24 of 60 seats) must be re-issued to NewCo by CM Oeiras — a closing condition, not a post-closing hope.</li>
-      <li><b>Exit reality.</b> Small F&B businesses trade at low multiples. Returns here come from cash distributions and optionality (second site, brand licensing), not multiple expansion. Model it that way.</li>
+      <li data-i18n="risk1"><b>It has never been profitable.</b> The thesis depends on executing new revenue streams, not inheriting earnings. The downside preset above shows a path that never breaks even in three years — the €12k contingency and fully-funded capex exist for exactly that path, with the lead able to bridge beyond it before any new money dilutes anyone.</li>
+      <li data-i18n="risk2"><b>Founder dependency.</b> Part of today's goodwill is personal to the founder. Mitigants: paid 4-week handover, 3-year local non-compete, retention of permanent staff — and a named day-to-day operator signed <em>before</em> closing, as a hard condition.</li>
+      <li data-i18n="risk3"><b>Seasonality.</b> Winter trades ~20% below average. The cowork stream is deliberately counter-seasonal — members are weekday locals, not tourists.</li>
+      <li data-i18n="risk4"><b>Rent step-up.</b> +€3,000/yr from July 2026. Already in every scenario on this page.</li>
+      <li data-i18n="risk5"><b>Licensing transfer.</b> The esplanada (24 of 60 seats) must be re-issued to NewCo by CM Oeiras — a closing condition, not a post-closing hope.</li>
+      <li data-i18n="risk6"><b>Exit reality.</b> Small F&B businesses trade at low multiples. Returns here come from cash distributions and optionality (second site, brand licensing), not multiple expansion. Model it that way.</li>
     </ul>
   </div>
 </section>
 
 <section id="dataroom" style="background:var(--cream-deep)">
   <div class="wrap">
-    <div class="section-eyebrow">08 · Verify everything</div>
-    <h2>The data room</h2>
-    <p class="lede">Every number on this page traces to a document below. Access is granted on request.</p>
+    <div class="section-eyebrow" data-i18n="s8eye">08 · Verify everything</div>
+    <h2 data-i18n="s8h2">The data room</h2>
+    <p class="lede" data-i18n="s8lede">Every number on this page traces to a document below. Access is granted on request.</p>
     <div class="dr-grid">
-      <div class="dr-card"><h3>Legal & licensing</h3><ul>
-        <li>Full 12-page lease (2023–2033)</li><li>Commercial registry certificate</li>
-        <li>AT tax clearance — clean</li><li>Social Security clearance — clean</li>
-        <li>CM Oeiras licensing notifications</li></ul></div>
-      <div class="dr-card"><h3>Financials</h3><ul>
-        <li>IES 2023 — official filing</li><li>IES 2024 — official filing</li>
-        <li>Trial balances Sep / Nov / Dec 2025</li><li>Revenue summary 2023–2025</li>
-        <li>Live 3-scenario Excel model</li></ul></div>
-      <div class="dr-card"><h3>Operations</h3><ul>
-        <li>Payroll receipts May 2026</li><li>EDP electricity invoice</li>
-        <li>Current menu & pricing</li><li>Investment memorandum (12 sections)</li>
-        <li>Open items / conditions precedent</li></ul></div>
+      <div class="dr-card"><h3 data-i18n="dr1H">Legal & licensing</h3><ul>
+        <li data-i18n="dr1a">Full 12-page lease (2023–2033)</li><li data-i18n="dr1b">Commercial registry certificate</li>
+        <li data-i18n="dr1c">AT tax clearance — clean</li><li data-i18n="dr1d">Social Security clearance — clean</li>
+        <li data-i18n="dr1e">CM Oeiras licensing notifications</li></ul></div>
+      <div class="dr-card"><h3 data-i18n="dr2H">Financials</h3><ul>
+        <li data-i18n="dr2a">IES 2023 — official filing</li><li data-i18n="dr2b">IES 2024 — official filing</li>
+        <li data-i18n="dr2c">Trial balances Sep / Nov / Dec 2025</li><li data-i18n="dr2d">Revenue summary 2023–2025</li>
+        <li data-i18n="dr2e">Live 3-scenario Excel model</li></ul></div>
+      <div class="dr-card"><h3 data-i18n="dr3H">Operations</h3><ul>
+        <li data-i18n="dr3a">Payroll receipts May 2026</li><li data-i18n="dr3b">EDP electricity invoice</li>
+        <li data-i18n="dr3c">Current menu & pricing</li><li data-i18n="dr3d">Investment memorandum (12 sections)</li>
+        <li data-i18n="dr3e">Open items / conditions precedent</li></ul></div>
     </div>
   </div>
 </section>
 
 <div class="cta">
   <div class="wrap">
-    <h2>Co-invest in Bib's Crew</h2>
-    <p>Invest from €5k — every euro buys the same terms as the lead's €40k. Quarterly dividends above a €25k cash buffer, a defined repurchase path if we expand. First step: model your ticket and stress-test the assumptions.</p>
-    <a class="btn" href="mailto:pablo@publica.la?subject=Bib's%20Crew%20—%20data%20room%20access">Request data room access</a>
+    <h2 data-i18n="ctaH">Co-invest in Bib's Crew</h2>
+    <p data-i18n="ctaP">Invest from €5k — every euro buys the same terms as the lead's €40k. Quarterly dividends above a €25k cash buffer, a defined repurchase path if we expand. First step: model your ticket and stress-test the assumptions.</p>
+    <a class="btn" href="mailto:pablo@publica.la?subject=Bib's%20Crew%20—%20data%20room%20access" data-i18n="ctaBtn">Request data room access</a>
   </div>
 </div>
 
 <footer>
   <div class="wrap">
-    <span>Bib's Crew acquisition · Paço de Arcos, Oeiras · June 2026</span>
-    <span>Draft for discussion. Not an offer of securities. Projections are estimates and may prove wrong.</span>
+    <span data-i18n="foot1">Bib's Crew acquisition · Paço de Arcos, Oeiras · June 2026</span>
+    <span data-i18n="foot2">Draft for discussion. Not an offer of securities. Projections are estimates and may prove wrong.</span>
   </div>
 </footer>
 
-<button id="chatFab" aria-label="Open the deal assistant chat">Ask about the deal</button>
+<button id="chatFab" aria-label="Open the deal assistant chat" data-i18n="chatFab">Ask about the deal</button>
 <div id="chatPanel" role="dialog" aria-label="Deal assistant">
   <div class="chat-head">
-    <div><b>Deal assistant</b><br><span>AI · answers from the public deal facts only</span></div>
+    <div><b data-i18n="chatTitle">Deal assistant</b><br><span data-i18n="chatSub">AI · answers from the public deal facts only</span></div>
     <button id="chatClose" aria-label="Close chat">×</button>
   </div>
   <div id="chatLog"></div>
@@ -512,26 +521,28 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
   <div class="chat-input">
     <input id="chatText" type="text" maxlength="2000" placeholder="Ask about the numbers, terms, risks…" aria-label="Your question">
-    <button id="chatSend">Send</button>
+    <button id="chatSend" data-i18n="chatSend">Send</button>
   </div>
-  <div class="chat-note">AI-generated answers from the public deal summary — not financial advice. Verify in the data room.</div>
+  <div class="chat-note" data-i18n="chatNote">AI-generated answers from the public deal summary — not financial advice. Verify in the data room.</div>
 </div>
 
 <script>
 const fmt=v=>{const a=Math.abs(Math.round(v)).toLocaleString('en-US');return v<0?`(€${a})`:`€${a}`};
 const CREAM='#F4EDDF',YEL='#E8C24A',TERRA='#E08B72',OK='#9CC78F',GRID='rgba(244,237,223,.08)';
 Chart.defaults.font.family="'Archivo',sans-serif";
+let moSuffix='/mo';
+let LANG='en',curDyn={pay:'Year',no:'not by 2033'},curGreet='';
 
 /* daypart chart */
-new Chart(document.getElementById('daypartChart'),{type:'bar',data:{
+const dpc=new Chart(document.getElementById('daypartChart'),{type:'bar',data:{
 labels:['08–11 brunch','11–13 plateau','13–15 lunch','15–18 afternoon','retail/other'],
 datasets:[
 {label:'Today',data:[7.2,2.1,2.6,2.3,0.3],backgroundColor:'#C9BCA4'},
 {label:'Plan (Yr 2)',data:[7.8,3.9,4.6,3.2,1.4],backgroundColor:'#2E6E73'}]},
-options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: €${c.parsed.y}k/mo`}}},scales:{y:{title:{display:true,text:'€k / month',font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}},x:{grid:{display:false},ticks:{font:{size:10}}}}}});
+options:{responsive:true,plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:11}}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: €${c.parsed.y}k${moSuffix}`}}},scales:{y:{title:{display:true,text:'€k / month',font:{size:10}},grid:{color:'rgba(0,0,0,.06)'}},x:{grid:{display:false},ticks:{font:{size:10}}}}}});
 
 /* history chart */
-new Chart(document.getElementById('histChart'),{data:{labels:['2023*','2024','2025'],
+const hc=new Chart(document.getElementById('histChart'),{data:{labels:['2023*','2024','2025'],
 datasets:[
 {type:'bar',label:'Revenue',data:[34225,140175,173909],backgroundColor:'#2E6E73',yAxisID:'y'},
 {type:'line',label:'EBITDA',data:[-32586,-15174,-8505],borderColor:'#C2563B',backgroundColor:'#C2563B',yAxisID:'y',tension:.3,pointRadius:5}]},
@@ -612,7 +623,7 @@ let rc;
 function renderReturns(){
   const share=INV/TOTAL_RAISE,my=computeReturns().map(d=>d*share);
   let acc=0;const cums=my.map(d=>acc+=d),total=cums[YEARS-1];
-  let pay='not by 2033';for(let i=0;i<YEARS;i++){if(cums[i]>=INV){pay='Year '+(i+1);break;}}
+  let pay=curDyn.no;for(let i=0;i<YEARS;i++){if(cums[i]>=INV){pay=curDyn.pay+' '+(i+1);break;}}
   document.getElementById('rStake').textContent=(share*100).toFixed(1)+'%';
   const t=document.getElementById('rTotal');t.textContent=fmt(total);
   const m=document.getElementById('rMult');m.textContent=(total/INV).toFixed(2)+'×';
@@ -641,7 +652,7 @@ const fab=document.getElementById('chatFab'),panel=document.getElementById('chat
   sendBtn=document.getElementById('chatSend'),history=[];
 let busy=false;
 fab.addEventListener('click',()=>{panel.classList.add('open');fab.style.display='none';
-  if(!log.children.length)addMsg('bot',"Hi — I can answer questions about the Bib's Crew deal: the numbers, the structure, the model, the risks. What would you like to know?");
+  if(!log.children.length)addMsg('bot',curGreet);
   input.focus();});
 document.getElementById('chatClose').addEventListener('click',()=>{panel.classList.remove('open');fab.style.display='block';});
 document.getElementById('chatSuggest').addEventListener('click',e=>{
@@ -653,23 +664,182 @@ async function send(){
   const q=input.value.trim();if(!q||busy)return;
   busy=true;sendBtn.disabled=true;input.value='';
   addMsg('user',q);history.push({role:'user',content:q});
-  const t=addMsg('bot','Thinking…','thinking');
+  const t=addMsg('bot',CHATX[LANG].think,'thinking');
   try{
     const r=await fetch(CHAT_API,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({messages:history.slice(-12)})});
+      body:JSON.stringify({messages:history.slice(-12),lang:LANG})});
     const data=await r.json();
     if(!r.ok)throw new Error(data.error||'request failed');
     t.classList.remove('thinking');t.textContent=data.reply;
     history.push({role:'assistant',content:data.reply});
   }catch(err){
     t.classList.remove('thinking');
-    t.textContent='Sorry, I could not answer right now. Email pablo@publica.la and we will get back to you.';
+    t.textContent=CHATX[LANG].err;
     history.pop();
   }
   busy=false;sendBtn.disabled=false;input.focus();
 }
 sendBtn.addEventListener('click',send);
 input.addEventListener('keydown',e=>{if(e.key==='Enter')send();});
+
+/* ===== i18n: English (source in HTML) + Portuguese (BR) + Spanish ===== */
+const TITLES={
+ en:"Bib's Crew — Paço de Arcos · Investment Opportunity",
+ pt:"Bib's Crew — Paço de Arcos · Oportunidade de Investimento",
+ es:"Bib's Crew — Paço de Arcos · Oportunidad de Inversión"};
+const DYN={
+ en:{pay:'Year',no:'not by 2033'},
+ pt:{pay:'Ano',no:'não até 2033'},
+ es:{pay:'Año',no:'no antes de 2033'}};
+const CL={
+ en:{dp:['08–11 brunch','11–13 plateau','13–15 lunch','15–18 afternoon','retail/other'],today:'Today',plan:'Plan (Yr 2)',ymo:'€k / month',mo:'/mo',rev:'Revenue',ebd:'EBITDA',y3:['Year 1','Year 2','Year 3'],div:'Your dividend',cum:'Cumulative',y7:['Yr 1','Yr 2','Yr 3','Yr 4','Yr 5','Yr 6','Yr 7']},
+ pt:{dp:['08–11 brunch','11–13 platô','13–15 almoço','15–18 tarde','varejo/outros'],today:'Hoje',plan:'Plano (ano 2)',ymo:'€k / mês',mo:'/mês',rev:'Receita',ebd:'EBITDA',y3:['Ano 1','Ano 2','Ano 3'],div:'Seu dividendo',cum:'Acumulado',y7:['Ano 1','Ano 2','Ano 3','Ano 4','Ano 5','Ano 6','Ano 7']},
+ es:{dp:['08–11 brunch','11–13 meseta','13–15 almuerzo','15–18 tarde','retail/otros'],today:'Hoy',plan:'Plan (año 2)',ymo:'€k / mes',mo:'/mes',rev:'Ingresos',ebd:'EBITDA',y3:['Año 1','Año 2','Año 3'],div:'Tu dividendo',cum:'Acumulado',y7:['Año 1','Año 2','Año 3','Año 4','Año 5','Año 6','Año 7']}};
+const CHATX={
+ en:{greet:"Hi — I can answer questions about the Bib's Crew deal: the numbers, the structure, the model, the risks. What would you like to know?",ph:"Ask about the numbers, terms, risks…",think:"Thinking…",err:"Sorry, I could not answer right now. Email pablo@publica.la and we will get back to you.",chips:["How is gross margin calculated?","Why buy assets instead of shares?","When do I get my money back?","What are the biggest risks?"]},
+ pt:{greet:"Olá — posso responder perguntas sobre o negócio do Bib's Crew: os números, a estrutura, o modelo, os riscos. O que você gostaria de saber?",ph:"Pergunte sobre os números, condições, riscos…",think:"Pensando…",err:"Desculpe, não consegui responder agora. Escreva para pablo@publica.la e retornaremos.",chips:["Como se calcula a margem bruta?","Por que comprar ativos em vez de quotas?","Quando recupero meu dinheiro?","Quais são os maiores riscos?"]},
+ es:{greet:"Hola — puedo responder preguntas sobre la operación de Bib's Crew: las cifras, la estructura, el modelo, los riesgos. ¿Qué te gustaría saber?",ph:"Pregunta sobre las cifras, condiciones, riesgos…",think:"Pensando…",err:"Lo siento, no pude responder ahora. Escribe a pablo@publica.la y te responderemos.",chips:["¿Cómo se calcula el margen bruto?","¿Por qué comprar activos en vez de participaciones?","¿Cuándo recupero mi dinero?","¿Cuáles son los mayores riesgos?"]}};
+const T={
+ pt:{
+  navCafe:"O café",navHist:"Histórico",navThesis:"Tese",navModel:"Modelo",navDeal:"Negócio",navReturns:"Retornos",navRisks:"Riscos",navData:"Data room",
+  heroEyebrow:"Oportunidade de investimento · junho de 2026 · Confidencial",
+  heroH1:"Um café specialty a dois minutos do Atlântico, <em>operando à meia força.</em>",
+  heroSub:"O Bib's Crew é um café specialty totalmente montado e licenciado, com 60 lugares e comida o dia todo, no coração pedonal de Paço de Arcos. Propomos comprar os ativos — não a empresa — e ligar a receita que o espaço já comporta: um cowork de 20 lugares, um menu de almoço, um cantinho de livros e uma parceria com torrefador.",
+  fact1:"Receita 2025 · +24% a/a",fact2:"EBITDA 2025 · ainda sem lucro",fact3:"Arrendamento garantido · €3.500/mês",fact4:"Capital buscado · €40k líder · a partir de €5k",
+  candor:"<strong>Leia isto primeiro:</strong> o negócio teve prejuízo nos três anos de operação. Este site não esconde isso — a tese parte daí. Todos os números históricos abaixo vêm de declarações fiscais oficiais incluídas na data room.",
+  s1eye:"01 · O café hoje",s1h2:"Montado, licenciado, operando — e subaproveitado",
+  s1lede:"€95k de obra concluída em 2023. Arrendamento de dez anos. Equipe treinada. Base local fiel. O fundador toca uma operação concentrada na manhã, trabalha no salão sem remuneração e está vendendo. O que falta não é capex — são períodos do dia e fontes de receita.",
+  snapHA:"Ativo",snapHS:"Situação",snSpaceK:"Espaço",snSpaceV:"90 m² · 60 lugares · 24 na esplanada",snLocK:"Localização",snLocV:"Zona pedonal · hotéis · paredão",snLeaseK:"Arrendamento",snLeaseV:"Até jun 2033 · trespasse pré-autorizado",snLicK:"Licenças",snLicV:"Utilização 52/2023 · esplanada · HACCP",snKitK:"Equipamento",snKitV:"Espresso · cozinha · A/C · exaustão",snTeamK:"Equipe",snTeamV:"3 funcionários · 1 efetivo desde 2023",snMenuK:"Cardápio",snMenuV:"Café specialty · brunch · açaí · cerveja artesanal",
+  dpCap:"Distribuição ilustrativa por período do dia. Hoje a receita se concentra na janela do brunch; o plano monetiza o platô da manhã à tarde pelo qual o espaço já paga aluguel.",
+  galCredit:"Fotos do <a href=\"https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45\" target=\"_blank\" rel=\"noopener\">anúncio público de venda da RE/MAX</a> — conjunto completo, planta e mapa de localização lá.",
+  s2eye:"02 · Histórico",s2h2:"Três anos de honestidade auditada",
+  s2lede:"A receita cresceu todo ano. O prejuízo diminuiu todo ano. O ponto de equilíbrio fica em torno de €187k de vendas na estrutura de custos atual — 2025 fechou em €174k. Estamos comprando pelo valor dos ativos, não pagando por lucros que não existem.",
+  plRev:"Receita",plGM:"Margem bruta",plSup:"Fornecimentos (FSE)",plStaff:"Pessoal",plNet:"Resultado líquido",
+  plFoot:"*Período de abertura jul–dez. Fontes: IES 2023 e 2024 (declarações oficiais da AT), balancete de dez 2025 — tudo na data room. A linha de pessoal cobre 3 funcionários; o dono trabalha em tempo integral sem remuneração.",
+  s3eye:"03 · A tese",s3h2:"Quatro alavancas, todas validadas no local",
+  s3lede:"Nenhuma exige obra, novo licenciamento do imóvel ou mudança de conceito. Capex combinado: €14k — todo financiado no fechamento.",
+  lev1h:"Cowork por assinatura",lev1p:"O salão comporta 20 postos de trabalho nas horas de semana que hoje quase não rendem. €129/mês incluindo crédito diário de café, tomada em cada mesa, horas de silêncio até as 12:30. Não existe híbrido café specialty + cowork na Linha.",lev1t:"Impacto no ano 3 · <b>~€25k+ a ~90% de margem</b> · capex €6,5k",
+  lev2h:"Menu de almoço",lev2p:"O cardápio de hoje para no brunch — sem saladas, sem quiche, sem prato quente do dia. Uma linha enxuta de almoço aumenta o ticket, preenche das 12:30 às 15:00 e alimenta os membros que já estão no salão. Sustenta o plano de margem bruta de 67% → 71%.",lev2t:"Impacto · <b>ticket + período + 4pts de MB</b> · capex €4k",
+  lev3h:"Cantinho de livros",lev3p:"Varejo curado aproveitando as duas décadas do investidor líder no mercado editorial — relações diretas com editoras destravam condições de consignação que a maioria dos cafés não consegue. Receita modesta, marca acima do esperado, tempo de permanência e valor de imprensa.",lev3t:"Impacto no ano 3 · <b>~€13k a 38% de margem</b> · capex €3,5k",
+  lev4h:"Parceria com torrefador",lev4p:"Um torrefador specialty comprometido está pronto para a parceria: melhor custo por espresso em cada xícara, pacotes de varejo co-branded, provas (cuppings) e eventos que constroem a comunidade de membros.",lev4t:"Impacto · <b>ganho de margem + €5–9k em varejo</b> · capex €0",
+  s4eye:"04 · Modelo interativo",s4h2:"Não confie no nosso cenário — monte o seu",
+  s4lede:"O mesmo motor do modelo em Excel na data room. Mexa nas alavancas; o resultado de três anos recalcula. Os custos sempre assumem quatro funcionários pagos — nunca trabalho gratuito do fundador.",
+  k1l:"EBITDA ano 1",k2l:"EBITDA ano 2",k3l:"EBITDA ano 3",
+  asmH:"Premissas",asmHint:"Predefinições, depois ajuste fino.",btnDown:"Pessimista",btnBase:"Base",btnUp:"Otimista",
+  ctrlM:"Membros de cowork na maturidade ",ctrlF:"Mensalidade €/mês ",ctrlG:"Crescimento do café base, ano 1 ",ctrlGM:"Margem bruta-alvo ",ctrlB:"Livros + pacotes €/mês (ano 3) ",
+  mNote:"Fixo em todos os cenários: aluguel €42k (o reajuste de julho/2026 para €3.500/mês já está incluído) indexado a 2%; pessoal = 4 FTE + líder de turno (€80,5k, +4%/ano); outros fornecimentos €26k (+4%/ano); outros custos €4,2k. EBITDA antes de D&A sobre novo capex, juros e impostos. O preset pessimista aplica −12% a toda a receita; o otimista +12%.",
+  s5eye:"05 · Estrutura do negócio",s5h2:"Ativos dentro, passivos fora",
+  s5lede:"O <a href=\"https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45\" target=\"_blank\" rel=\"noopener\">anúncio público</a> oferece as quotas da empresa por €55k. Não vamos comprar quotas: a empresa do vendedor carrega ~€157k de empréstimos do sócio, €34k de contas a pagar atrasadas com fornecedores e ~€81k de patrimônio líquido negativo. Em vez disso, uma nova empresa adquire o estabelecimento por trespasse.",
+  ncH:"O que a NewCo adquire",ck1:"Obra e equipamentos (€95k brutos investidos, pronto para operar)",ck2:"Posição no arrendamento até 2033 — transfere-se com o estabelecimento por lei (art. 1112.º CC); pré-autorizado no contrato",ck3:"Marca, redes sociais, receitas, carteira de fornecedores",ck4:"Continuidade do pessoal efetivo (art. 285.º CT) — contratação para um plano de 4 FTE",ck5:"Balanço limpo, condições limpas com fornecedores, histórico zero",
+  ufH:"Uso dos recursos — €80k",uf1:"Preço do trespasse (teto)",uf2:"Imposto de selo 5% + jurídico + marca",uf3:"Reforço do depósito do arrendamento",uf4:"Obra: cowork + cozinha de almoço + livros",uf5:"Estoque inicial + capital de giro",uf6:"Contingência / reserva do ano 1",ufTot:"Total · €40k líder · €40k coinvestidores",
+  ufFoot:"O preço do trespasse é um teto rígido, não uma meta — saímos se o vendedor não aceitar, e a posição dele indica que aceitará: €81k de patrimônio negativo e um preço de €55k pelas quotas sem interessados. As quatro alavancas são financiadas no fechamento; nada depende do fluxo de caixa inicial.",
+  poH:"Como os investidores recebem",poIntro:"Aqui o retorno é distribuição de caixa, não um múltiplo de saída esperado. A mecânica, em ordem:",
+  c1n:"1 · Mesmas condições do líder",c1h:"Invista a partir de €5k — sua participação é proporcional",c1p:"A NewCo capta €80k. O líder investe €40k por 50%; os coinvestidores dividem os outros 50% exatamente ao mesmo preço por ponto — invista o que quiser a partir de €5k, e sua participação é simplesmente seu investimento ÷ €80k. Sem taxa de gestão, sem carry, sem salário da NewCo.",
+  c2n:"2 · Dividendos trimestrais",c2h:"Todo o caixa acima de uma reserva de €25k",c2p:"A cada trimestre, cada euro de caixa acima de uma reserva operacional fixa de €25k é distribuído proporcionalmente às quotas. Nada se acumula na empresa além da reserva. No cenário base, os primeiros dividendos saem no ano&nbsp;2 — simule seu próprio aporte abaixo.",
+  c3n:"3 · Capital de volta, depois rendimento",c3h:"Os dividendos abatem primeiro o seu capital",c3p:"Reportamos cada distribuição contra o seu capital investido até que ele seja totalmente devolvido; tudo depois disso é rendimento. Só com dividendos o retorno é lento no cenário base — por isso a estrutura inclui um caminho definido de recompra, não apenas uma venda esperada.",
+  c4n:"4 · Duas portas de saída",c4h:"Recompra se expandirmos · trespasse se vendermos",c4p:"Se a NewCo expandir — uma segunda unidade, licenciamento de marca — a empresa ou o líder recompra as quotas dos coinvestidores por uma fórmula de avaliação acordada de antemão, para você sair sem esperar por uma venda. Caso contrário, uma futura venda do estabelecimento por trespasse distribui proporcionalmente após as dívidas. Governança: resultado trimestral comparado a este modelo, contas anuais, consentimento dos investidores em matérias reservadas.",
+  s6eye:"06 · Seus retornos",s6h2:"Simule seu aporte",
+  s6lede:"Escolha um valor; os dividendos seguem o mesmo motor e o cenário e as premissas que você definir no modelo acima, projetados até o fim do arrendamento (2033). Apenas dividendos — qualquer recompra ou saída por trespasse vem por cima destes números.",
+  rStakeL:"Sua participação",rTotalL:"Dividendos até 2033",rMultL:"Retorno do capital",rPayL:"Payback",
+  invH:"Seu investimento",invHint:"Mínimo €5k. Mesmo preço por ponto que os €40k do líder.",ctrlI:"Investimento ",
+  invHint2:"Sua participação = investimento ÷ €80k. Os controles detalhados da seção 04 também alimentam esta projeção — teste como quiser.",
+  rNote:"Motor: a NewCo abre com ~€24,5k em caixa (capital de giro + contingência — todo o capex já pago no fechamento). O EBITDA de cada ano soma ao caixa; tudo acima da reserva de €25k é distribuído proporcionalmente. Os anos 4–7 mantêm o EBITDA do ano 3 constante — sem crescimento. Os valores são antes de impostos (antes de IRC e retenção sobre dividendos) e excluem a saída por recompra / trespasse.",
+  s7eye:"07 · Riscos, sem rodeios",s7h2:"O que pode dar errado",s7lede:"Se algum destes fizer você desistir, esse é o uso correto desta página.",
+  risk1:"<b>Nunca deu lucro.</b> A tese depende de executar novas fontes de receita, não de herdar lucros. O preset pessimista acima mostra um caminho que nunca atinge o equilíbrio em três anos — a contingência de €12k e o capex totalmente financiado existem exatamente para esse caminho, com o líder capaz de cobrir além disso antes que dinheiro novo dilua alguém.",
+  risk2:"<b>Dependência do fundador.</b> Parte do goodwill atual é pessoal do fundador. Mitigantes: transição paga de 4 semanas, cláusula de não concorrência local de 3 anos, retenção do pessoal efetivo — e um operador do dia a dia nomeado e assinado <em>antes</em> do fechamento, como condição obrigatória.",
+  risk3:"<b>Sazonalidade.</b> O inverno opera ~20% abaixo da média. A receita de cowork é deliberadamente contracíclica — os membros são moradores locais de dias úteis, não turistas.",
+  risk4:"<b>Reajuste do aluguel.</b> +€3.000/ano a partir de julho de 2026. Já incluído em todos os cenários desta página.",
+  risk5:"<b>Transferência de licenças.</b> A esplanada (24 dos 60 lugares) precisa ser reemitida para a NewCo pela CM Oeiras — uma condição de fechamento, não uma esperança pós-fechamento.",
+  risk6:"<b>Realidade da saída.</b> Pequenos negócios de food & beverage são negociados a múltiplos baixos. Aqui o retorno vem de distribuições de caixa e opcionalidade (segunda unidade, licenciamento de marca), não de expansão de múltiplo. Modele dessa forma.",
+  s8eye:"08 · Verifique tudo",s8h2:"A data room",s8lede:"Cada número desta página remete a um documento abaixo. O acesso é concedido mediante solicitação.",
+  dr1H:"Jurídico e licenças",dr1a:"Contrato de arrendamento completo de 12 páginas (2023–2033)",dr1b:"Certidão de registro comercial",dr1c:"Certidão fiscal da AT — sem dívidas",dr1d:"Certidão da Segurança Social — sem dívidas",dr1e:"Notificações de licenciamento da CM Oeiras",
+  dr2H:"Financeiro",dr2a:"IES 2023 — declaração oficial",dr2b:"IES 2024 — declaração oficial",dr2c:"Balancetes set / nov / dez 2025",dr2d:"Resumo de receita 2023–2025",dr2e:"Modelo em Excel com 3 cenários",
+  dr3H:"Operações",dr3a:"Recibos de folha de pagamento maio 2026",dr3b:"Fatura de eletricidade da EDP",dr3c:"Cardápio e preços atuais",dr3d:"Memorando de investimento (12 seções)",dr3e:"Pontos em aberto / condições precedentes",
+  ctaH:"Coinvista no Bib's Crew",ctaP:"Invista a partir de €5k — cada euro compra as mesmas condições que os €40k do líder. Dividendos trimestrais acima de uma reserva de caixa de €25k, um caminho definido de recompra se expandirmos. Primeiro passo: simule seu aporte e teste as premissas.",ctaBtn:"Solicitar acesso à data room",
+  foot1:"Aquisição do Bib's Crew · Paço de Arcos, Oeiras · junho de 2026",foot2:"Rascunho para discussão. Não é uma oferta de valores mobiliários. As projeções são estimativas e podem se mostrar erradas.",
+  chatFab:"Pergunte sobre o negócio",chatTitle:"Assistente do negócio",chatSub:"IA · responde só com os dados públicos do negócio",chatSend:"Enviar",chatNote:"Respostas geradas por IA a partir do resumo público — não é aconselhamento financeiro. Verifique na data room."
+ },
+ es:{
+  navCafe:"El café",navHist:"Trayectoria",navThesis:"Tesis",navModel:"Modelo",navDeal:"Operación",navReturns:"Retornos",navRisks:"Riesgos",navData:"Data room",
+  heroEyebrow:"Oportunidad de inversión · junio de 2026 · Confidencial",
+  heroH1:"Un café de especialidad a dos minutos del Atlántico, <em>funcionando a medio gas.</em>",
+  heroSub:"Bib's Crew es un café de especialidad totalmente montado y con todas las licencias, con 60 plazas y comida durante todo el día, en el corazón peatonal de Paço de Arcos. Proponemos comprar los activos —no la empresa— y activar los ingresos que el espacio ya admite: una membresía de cowork de 20 plazas, un menú de almuerzo, un rincón de libros y una alianza con un tostador.",
+  fact1:"Ingresos 2025 · +24% interanual",fact2:"EBITDA 2025 · aún sin beneficios",fact3:"Alquiler asegurado · €3.500/mes",fact4:"Capital buscado · €40k líder · desde €5k",
+  candor:"<strong>Lee esto primero:</strong> el negocio ha tenido pérdidas en sus tres años de actividad. Este sitio no lo oculta —la tesis se construye sobre ello—. Todas las cifras históricas de abajo provienen de declaraciones fiscales oficiales incluidas en la data room.",
+  s1eye:"01 · El café hoy",s1h2:"Montado, con licencias, operando — e infrautilizado",
+  s1lede:"€95k de acondicionamiento terminado en 2023. Contrato de alquiler a diez años. Equipo formado. Clientela local fiel. El fundador lleva una operación centrada en la mañana, trabaja en la sala sin cobrar y está vendiendo. Lo que falta no es capex, son franjas horarias y fuentes de ingresos.",
+  snapHA:"Activo",snapHS:"Estado",snSpaceK:"Espacio",snSpaceV:"90 m² · 60 plazas · 24 en terraza",snLocK:"Ubicación",snLocV:"Zona peatonal · hoteles · paseo marítimo",snLeaseK:"Alquiler",snLeaseV:"Hasta jun 2033 · traspaso preautorizado",snLicK:"Licencias",snLicV:"Utilização 52/2023 · terraza · HACCP",snKitK:"Equipamiento",snKitV:"Espresso · cocina · A/C · extracción",snTeamK:"Equipo",snTeamV:"3 empleados · 1 fijo desde 2023",snMenuK:"Carta",snMenuV:"Café de especialidad · brunch · açaí · cerveza artesanal",
+  dpCap:"Distribución ilustrativa por franja horaria. Hoy los ingresos se concentran en la franja del brunch; el plan monetiza la meseta de la mañana a la tarde por la que el espacio ya paga alquiler.",
+  galCredit:"Fotos del <a href=\"https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45\" target=\"_blank\" rel=\"noopener\">anuncio público de venta de RE/MAX</a> — set completo, plano y mapa de ubicación allí.",
+  s2eye:"02 · Trayectoria",s2h2:"Tres años de honestidad auditada",
+  s2lede:"Los ingresos crecieron cada año. Las pérdidas se redujeron cada año. El punto de equilibrio está en torno a €187k de ventas con la estructura de costes actual; 2025 cerró en €174k. Compramos a valor de activos, no pagamos por beneficios que no existen.",
+  plRev:"Ingresos",plGM:"Margen bruto",plSup:"Suministros (FSE)",plStaff:"Personal",plNet:"Resultado neto",
+  plFoot:"*Periodo de apertura jul–dic. Fuentes: IES 2023 y 2024 (declaraciones oficiales de la AT), balance de comprobación dic 2025 — todo en la data room. La línea de personal cubre 3 empleados; el dueño trabaja a tiempo completo sin cobrar.",
+  s3eye:"03 · La tesis",s3h2:"Cuatro palancas, todas validadas in situ",
+  s3lede:"Ninguna requiere obra, relicenciar el local ni cambiar el concepto. Capex combinado: €14k — todo financiado al cierre.",
+  lev1h:"Membresía de cowork",lev1p:"La sala admite 20 puestos de trabajo en horario de entre semana que hoy casi no generan ingresos. €129/mes con crédito diario de café, enchufe en cada mesa, horas de silencio hasta las 12:30. No existe un híbrido café de especialidad + cowork en la Linha (la costa de Lisboa).",lev1t:"Impacto en año 3 · <b>~€25k+ al ~90% de margen</b> · capex €6,5k",
+  lev2h:"Menú de almuerzo",lev2p:"La carta de hoy se queda en el brunch — sin ensaladas, sin quiche, sin plato caliente del día. Una línea ajustada de almuerzo sube el ticket, llena de 12:30 a 15:00 y da de comer a los socios que ya están en la sala. Sostiene el plan de margen bruto del 67% → 71%.",lev2t:"Impacto · <b>ticket + franja + 4pts de MB</b> · capex €4k",
+  lev3h:"Rincón de libros",lev3p:"Retail curado aprovechando las dos décadas del inversor líder en el sector editorial — las relaciones directas con editoriales desbloquean condiciones de consignación que la mayoría de cafés no consigue. Ingreso modesto, marca desproporcionada, tiempo de permanencia y valor de prensa.",lev3t:"Impacto en año 3 · <b>~€13k al 38% de margen</b> · capex €3,5k",
+  lev4h:"Alianza con tostador",lev4p:"Un tostador de especialidad comprometido está listo para asociarse: mejor coste por espresso en cada taza, bolsas de retail con marca compartida, catas (cuppings) y eventos que construyen la comunidad de socios.",lev4t:"Impacto · <b>mejora de margen + €5–9k en retail</b> · capex €0",
+  s4eye:"04 · Modelo interactivo",s4h2:"No confíes en nuestro caso — construye el tuyo",
+  s4lede:"El mismo motor que el modelo en Excel de la data room. Mueve las palancas; la cuenta de resultados a tres años se recalcula. Los costes siempre asumen cuatro empleados pagados — nunca trabajo gratis del fundador.",
+  k1l:"EBITDA año 1",k2l:"EBITDA año 2",k3l:"EBITDA año 3",
+  asmH:"Supuestos",asmHint:"Preajustes, luego afina.",btnDown:"Pesimista",btnBase:"Base",btnUp:"Optimista",
+  ctrlM:"Socios de cowork en madurez ",ctrlF:"Cuota €/mes ",ctrlG:"Crecimiento del café base, año 1 ",ctrlGM:"Margen bruto objetivo ",ctrlB:"Libros + bolsas €/mes (año 3) ",
+  mNote:"Fijo en cada escenario: alquiler €42k (el incremento de julio-2026 a €3.500/mes ya está incluido) indexado al 2%; personal = 4 FTE + responsable de turno (€80,5k, +4%/año); otros suministros €26k (+4%/año); otros costes €4,2k. EBITDA antes de amortizaciones sobre el nuevo capex, intereses e impuestos. El preset pesimista aplica −12% a todos los ingresos; el optimista +12%.",
+  s5eye:"05 · Estructura de la operación",s5h2:"Activos dentro, pasivos fuera",
+  s5lede:"El <a href=\"https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45\" target=\"_blank\" rel=\"noopener\">anuncio público</a> ofrece las participaciones de la empresa por €55k. No compraremos participaciones: la sociedad del vendedor arrastra ~€157k de préstamos del socio, €34k de deudas con proveedores estiradas y ~€81k de patrimonio neto negativo. En su lugar, una nueva sociedad adquiere el establecimiento mediante traspaso (trespasse).",
+  ncH:"Qué adquiere NewCo",ck1:"Acondicionamiento y equipo (€95k brutos invertidos, llave en mano)",ck2:"Posición en el alquiler hasta 2033 — se transfiere con el establecimiento por ley (art. 1112.º CC); preautorizado en el contrato",ck3:"Marca, redes sociales, recetas, cartera de proveedores",ck4:"Continuidad del personal fijo (art. 285.º CT) — contratación según un plan de 4 FTE",ck5:"Balance limpio, condiciones limpias con proveedores, historial cero",
+  ufH:"Uso de los fondos — €80k",uf1:"Precio del traspaso (tope)",uf2:"Impuesto de actos jurídicos 5% + legal + marca",uf3:"Refuerzo del depósito del alquiler",uf4:"Acondicionamiento: cowork + cocina de almuerzo + libros",uf5:"Stock inicial + capital de trabajo",uf6:"Contingencia / colchón del año 1",ufTot:"Total · €40k líder · €40k coinversores",
+  ufFoot:"El precio del traspaso es un tope rígido, no un objetivo — nos retiramos si el vendedor no lo acepta, y su situación indica que lo hará: €81k de patrimonio negativo y un precio de €55k por las participaciones sin compradores. Las cuatro palancas se financian al cierre; nada depende del flujo de caja inicial.",
+  poH:"Cómo cobran los inversores",poIntro:"Aquí el retorno son distribuciones de caja, no un múltiplo de salida esperado. La mecánica, en orden:",
+  c1n:"1 · Mismas condiciones que el líder",c1h:"Invierte desde €5k — tu participación es proporcional",c1p:"NewCo capta €80k. El líder invierte €40k por el 50%; los coinversores se reparten el otro 50% exactamente al mismo precio por punto — invierte lo que quieras desde €5k, y tu participación es simplemente tu inversión ÷ €80k. Sin comisión de gestión, sin carry, sin sueldo de NewCo.",
+  c2n:"2 · Dividendos trimestrales",c2h:"Toda la caja por encima de un colchón de €25k",c2p:"Cada trimestre, cada euro de caja por encima de un colchón operativo fijo de €25k se distribuye a prorrata entre las participaciones. Nada se acumula en la empresa más allá del colchón. En el escenario base, los primeros dividendos salen en el año&nbsp;2 — simula tu propio ticket abajo.",
+  c3n:"3 · Primero el capital, luego rendimiento",c3h:"Los dividendos se imputan primero a tu capital",c3p:"Reportamos cada distribución contra tu capital invertido hasta devolverlo por completo; todo lo que viene después es rendimiento. Solo con dividendos el retorno es lento en el escenario base — por eso la estructura incluye una vía definida de recompra, no solo una venta esperada.",
+  c4n:"4 · Dos puertas de salida",c4h:"Recompra si crecemos · traspaso si vendemos",c4p:"Si NewCo crece —una segunda sede, licencia de marca— la empresa o el líder recompra las participaciones de los coinversores con una fórmula de valoración pactada de antemano, para que puedas salir sin esperar a una venta. Si no, una futura venta del establecimiento por traspaso distribuye a prorrata tras las deudas. Gobernanza: cuenta de resultados trimestral frente a este modelo, cuentas anuales, consentimiento de los inversores en materias reservadas.",
+  s6eye:"06 · Tus retornos",s6h2:"Simula tu ticket",
+  s6lede:"Elige un importe; los dividendos siguen el mismo motor y el escenario y los supuestos que fijes en el modelo de arriba, proyectados hasta el fin del alquiler (2033). Solo dividendos — cualquier recompra o salida por traspaso se suma a estas cifras.",
+  rStakeL:"Tu participación",rTotalL:"Dividendos hasta 2033",rMultL:"Dinero recuperado",rPayL:"Payback",
+  invH:"Tu inversión",invHint:"Mínimo €5k. Mismo precio por punto que los €40k del líder.",ctrlI:"Inversión ",
+  invHint2:"Tu participación = inversión ÷ €80k. Los controles detallados de la sección 04 también alimentan esta proyección — ponla a prueba como quieras.",
+  rNote:"Motor: NewCo abre con ~€24,5k en caja (capital de trabajo + contingencia — todo el capex ya pagado al cierre). El EBITDA de cada año se suma a la caja; todo lo que supera el colchón de €25k se distribuye a prorrata. Los años 4–7 mantienen el EBITDA del año 3 constante — sin crecimiento. Las cifras son antes de impuestos (antes de IRC y retención sobre dividendos) y excluyen la salida por recompra / traspaso.",
+  s7eye:"07 · Riesgos, sin rodeos",s7h2:"Qué puede salir mal",s7lede:"Si alguno de estos te hace marcharte, ese es el uso correcto de esta página.",
+  risk1:"<b>Nunca ha sido rentable.</b> La tesis depende de ejecutar nuevas fuentes de ingresos, no de heredar beneficios. El preset pesimista de arriba muestra un camino que nunca alcanza el equilibrio en tres años — la contingencia de €12k y el capex totalmente financiado existen exactamente para ese camino, con el líder capaz de cubrir más allá antes de que dinero nuevo diluya a nadie.",
+  risk2:"<b>Dependencia del fundador.</b> Parte del fondo de comercio actual es personal del fundador. Mitigantes: traspaso pagado de 4 semanas, pacto de no competencia local de 3 años, retención del personal fijo — y un operador del día a día nombrado y firmado <em>antes</em> del cierre, como condición obligatoria.",
+  risk3:"<b>Estacionalidad.</b> El invierno opera ~20% por debajo de la media. El ingreso de cowork es deliberadamente contraestacional — los socios son vecinos de entre semana, no turistas.",
+  risk4:"<b>Subida del alquiler.</b> +€3.000/año desde julio de 2026. Ya incluido en todos los escenarios de esta página.",
+  risk5:"<b>Transferencia de licencias.</b> La terraza (24 de 60 plazas) debe reemitirse a NewCo por el Ayuntamiento de Oeiras (CM Oeiras) — una condición de cierre, no una esperanza posterior.",
+  risk6:"<b>Realidad de la salida.</b> Los pequeños negocios de hostelería se venden a múltiplos bajos. Aquí el retorno viene de distribuciones de caja y opcionalidad (segunda sede, licencia de marca), no de expansión de múltiplo. Modélalo así.",
+  s8eye:"08 · Verifícalo todo",s8h2:"La data room",s8lede:"Cada cifra de esta página remite a un documento de abajo. El acceso se concede a petición.",
+  dr1H:"Legal y licencias",dr1a:"Contrato de alquiler completo de 12 páginas (2023–2033)",dr1b:"Certificado del registro mercantil",dr1c:"Certificado fiscal de la AT — sin deudas",dr1d:"Certificado de la Seguridad Social — sin deudas",dr1e:"Notificaciones de licencia del Ayuntamiento de Oeiras",
+  dr2H:"Finanzas",dr2a:"IES 2023 — declaración oficial",dr2b:"IES 2024 — declaración oficial",dr2c:"Balances de comprobación sep / nov / dic 2025",dr2d:"Resumen de ingresos 2023–2025",dr2e:"Modelo en Excel con 3 escenarios",
+  dr3H:"Operaciones",dr3a:"Recibos de nómina mayo 2026",dr3b:"Factura de electricidad de EDP",dr3c:"Carta y precios actuales",dr3d:"Memorándum de inversión (12 secciones)",dr3e:"Asuntos pendientes / condiciones precedentes",
+  ctaH:"Coinvierte en Bib's Crew",ctaP:"Invierte desde €5k — cada euro compra las mismas condiciones que los €40k del líder. Dividendos trimestrales por encima de un colchón de caja de €25k, una vía definida de recompra si crecemos. Primer paso: simula tu ticket y pon a prueba los supuestos.",ctaBtn:"Solicitar acceso a la data room",
+  foot1:"Adquisición de Bib's Crew · Paço de Arcos, Oeiras · junio de 2026",foot2:"Borrador para discusión. No es una oferta de valores. Las proyecciones son estimaciones y pueden resultar erróneas.",
+  chatFab:"Pregunta sobre la operación",chatTitle:"Asistente de la operación",chatSub:"IA · responde solo con los datos públicos de la operación",chatSend:"Enviar",chatNote:"Respuestas generadas por IA a partir del resumen público — no es asesoramiento financiero. Verifica en la data room."
+ }
+};
+const EN_SNAP={};
+document.querySelectorAll('[data-i18n]').forEach(el=>{EN_SNAP[el.dataset.i18n]=el.innerHTML;});
+function applyChartLang(l){const c=CL[l];
+  dpc.data.labels=c.dp;dpc.data.datasets[0].label=c.today;dpc.data.datasets[1].label=c.plan;dpc.options.scales.y.title.text=c.ymo;moSuffix=c.mo;dpc.update();
+  hc.data.datasets[0].label=c.rev;hc.data.datasets[1].label=c.ebd;hc.update();
+  mc.data.labels=c.y3;mc.data.datasets[0].label=c.rev;mc.data.datasets[1].label=c.ebd;mc.update();
+  rc.data.labels=c.y7;rc.data.datasets[0].label=c.div;rc.data.datasets[1].label=c.cum;rc.update();}
+function applyLang(l){
+  LANG=l;curDyn=DYN[l];curGreet=CHATX[l].greet;
+  document.documentElement.lang=l;document.title=TITLES[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;
+    el.innerHTML=(l==='en'?EN_SNAP[k]:(T[l][k]!=null?T[l][k]:EN_SNAP[k]));});
+  input.placeholder=CHATX[l].ph;
+  document.getElementById('chatSuggest').innerHTML=CHATX[l].chips.map(c=>'<button>'+c+'</button>').join('');
+  document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  try{localStorage.setItem('bc_lang',l);}catch(e){}
+  applyChartLang(l);renderReturns();}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+let _saved=null;try{_saved=localStorage.getItem('bc_lang');}catch(e){}
+const _nav=(navigator.language||'en').slice(0,2).toLowerCase();
+applyLang(_saved||(['pt','es'].includes(_nav)?_nav:'en'));
 </script>
 </body>
 </html>
