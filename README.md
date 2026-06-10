@@ -2,7 +2,7 @@
 
 Investment opportunity one-pager for the acquisition of Bib's Crew, a specialty-coffee café in Paço de Arcos, Oeiras (June 2026).
 
-Single static page (`index.html`) with an interactive 3-year P&L model built on Chart.js. No build step.
+Single static page (`index.html`) with an interactive 3-year P&L model built on Chart.js. No build step. Photos in `assets/` are from the [public RE/MAX sale listing](https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45).
 
 ## Run locally
 

@@ -115,6 +115,24 @@ input[type=range]{width:100%;accent-color:var(--chalk-yellow);background:transpa
 .checklist li{padding:9px 0 9px 30px;border-bottom:1px solid var(--cream-deep);position:relative;font-size:.93rem}
 .checklist li::before{content:"→";position:absolute;left:4px;color:var(--atlantic);font-family:var(--mono)}
 
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.gallery img{width:100%;height:230px;object-fit:cover;border-radius:10px;border:1px solid var(--cream-deep);display:block}
+@media(max-width:760px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:160px}}
+.gallery-credit{font-size:.75rem;color:#6B6354;margin-top:10px}
+.gallery-credit a,.lede a{color:var(--atlantic)}
+
+/* payout */
+.payout{margin-top:48px}
+.payout>h3{font-family:'Fraunces',serif;font-size:1.45rem;margin-bottom:6px}
+.payout>p{max-width:700px;color:#4A443B;font-size:.95rem;margin-bottom:22px}
+.payout-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:760px){.payout-grid{grid-template-columns:1fr}}
+.payout-card{background:#fff;border:1px solid var(--cream-deep);border-radius:10px;padding:22px}
+.payout-card .num{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;color:var(--atlantic);text-transform:uppercase;display:block;margin-bottom:8px}
+.payout-card h4{font-family:'Fraunces',serif;font-size:1.08rem;margin-bottom:8px}
+.payout-card p{font-size:.9rem;color:#4A443B}
+
 /* risks */
 .risks .lede{color:#C9BFAE}
 .risk-list{list-style:none;max-width:760px}
@@ -192,6 +210,15 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <p style="font-size:.78rem;color:#6B6354;margin-top:10px">Illustrative daypart mix. Today's revenue concentrates in the brunch window; the plan monetises the morning-to-afternoon plateau the space already pays rent on.</p>
       </div>
     </div>
+    <div class="gallery">
+      <img src="assets/dining-room.jpg" alt="Main dining room — terracotta walls, plants and window seating">
+      <img src="assets/counter.jpg" alt="Service counter with green tile accents and plants">
+      <img src="assets/espresso-bar.jpg" alt="Espresso machine and bar station">
+      <img src="assets/brand-wall.jpg" alt="Bib's Crew branded wall with café table">
+      <img src="assets/street.jpg" alt="Pedestrian street in Paço de Arcos outside the café">
+      <img src="assets/facade.jpg" alt="Café facade with awning and esplanada seating">
+    </div>
+    <p class="gallery-credit">Photos from the <a href="https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45" target="_blank" rel="noopener">public RE/MAX sale listing</a> — full set, floor plan and location map there.</p>
   </div>
 </section>
 
@@ -290,7 +317,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   <div class="wrap">
     <div class="section-eyebrow">05 · Deal structure</div>
     <h2>Assets in, liabilities out</h2>
-    <p class="lede">The listing offers the company's shares at €55k. We won't buy shares: the seller's entity carries ~€157k of founder loans, €34k of stretched supplier payables and ~€81k of negative equity. A new company acquires the establishment by trespasse instead.</p>
+    <p class="lede">The <a href="https://remax.pt/pt/imoveis/venda-trespasse-toeiras-oeiras-e-sao-juliao-da-barra-paco-de-arcos-e-caxias/123441344-45" target="_blank" rel="noopener">public listing</a> offers the company's shares at €55k. We won't buy shares: the seller's entity carries ~€157k of founder loans, €34k of stretched supplier payables and ~€81k of negative equity. A new company acquires the establishment by trespasse instead.</p>
     <div class="two-col">
       <div>
         <h3 style="font-family:'Fraunces',serif;margin-bottom:14px">What NewCo acquires</h3>
@@ -313,6 +340,32 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <tr><td>Contingency / Year-1 buffer</td><td>22,000</td></tr>
           <tr class="tot"><td>Total · lead ~50% · co-investors ~50%</td><td>103,500</td></tr>
         </table>
+      </div>
+    </div>
+    <div class="payout">
+      <h3>How investors get paid</h3>
+      <p>Returns here are cash distributions, not a hoped-for exit multiple. The mechanics, in order:</p>
+      <div class="payout-grid">
+        <div class="payout-card">
+          <span class="num">1 · Same terms as the lead</span>
+          <h4>Pro-rata quotas in NewCo</h4>
+          <p>Every euro buys quotas in the new company at the same price as the lead investor, who puts in ~50% of the round. No management fees, no carry, no promote — the lead earns only on its own capital, like everyone else.</p>
+        </div>
+        <div class="payout-card">
+          <span class="num">2 · Quarterly distributions</span>
+          <h4>All cash above a €25k buffer</h4>
+          <p>Each quarter, every euro of cash above a fixed €25k operating buffer is distributed pro-rata to quotas. Nothing accumulates in the company beyond the buffer. In the base case above, distributions start in Year&nbsp;2, when the café crosses breakeven.</p>
+        </div>
+        <div class="payout-card">
+          <span class="num">3 · Capital back, then yield</span>
+          <h4>Distributions count against your capital first</h4>
+          <p>We report every distribution against your invested capital until it is fully returned; everything after that is yield. On the base case the model implies full payback inside the lease term, with the downside preset showing the path where it doesn't — judge both.</p>
+        </div>
+        <div class="payout-card">
+          <span class="num">4 · Exit, same waterfall</span>
+          <h4>Upside flows through the same pipe</h4>
+          <p>A sale of the establishment (trespasse), a second site, or brand licensing income is distributed exactly the same way: pro-rata, after debts. Governance: quarterly P&amp;L reported against this model, annual accounts, and reserved matters — new debt, sale, second site — require investor consent.</p>
+        </div>
       </div>
     </div>
   </div>
